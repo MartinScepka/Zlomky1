@@ -15,9 +15,9 @@ public class Main {
         IO.println(b);
 
         var soucet = a.plus(b);
-        IO.println("Součet je %s".formatted(soucet));
-        IO.println("Rozdíl je %s".formatted(a.minus(b)));
-        IO.println("Součin je %s".formatted(a.nasobeni(b)));
-        IO.println("Podíl je %s".formatted(a.deleni(b)));
+        IO.println("Součet je %s".formatted(soucet.zkratit()));
+        IO.println("Rozdíl je %s".formatted(a.minus(b).zkratit()));
+        IO.println("Součin je %s".formatted(a.nasobeni(b).zkratit()));
+        IO.println("Podíl je %s".formatted(a.deleni(b).zkratit()));
     }
 }

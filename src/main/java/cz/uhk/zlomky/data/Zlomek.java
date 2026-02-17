@@ -60,7 +60,27 @@ public class Zlomek {
         return new Zlomek(cit, jm);
     }
 
+    public Zlomek zkratit(){
+        var  delitel = nsd(citatel, jmenovatel);
+        return new Zlomek(citatel / delitel, jmenovatel / delitel);
+    }
 
+    private int nsd(int a, int b){
+        if (a < b){
+            var pom = a;
+            a = b;
+            b = pom;
+        }
+        //a > b ...
+        int zb;
+        do{
+            zb = a % b;
+            a = b;
+            b = zb;
+        } while (zb != 0);
+
+        return a;
+    }
     @Override
     public String toString() {
         return String.format("%d/%d", citatel, jmenovatel);
