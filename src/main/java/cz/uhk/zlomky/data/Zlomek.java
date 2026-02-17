@@ -5,7 +5,10 @@ public class Zlomek {
     private int jmenovatel;
 
 
-    public Zlomek(){} // defaultni konstruktor
+    public Zlomek(){
+        this.citatel = 0;
+        this.jmenovatel = 1;
+    } // defaultni konstruktor
 
     public Zlomek(int citatel, int jmenovatel){
         this.citatel = citatel;
@@ -58,6 +61,10 @@ public class Zlomek {
         int cit = citatel * druhy.jmenovatel;
         int jm = jmenovatel * druhy.citatel;
         return new Zlomek(cit, jm);
+    }
+
+    public Zlomek deleni(int num){
+        return deleni(new Zlomek(num, 1));
     }
 
     public Zlomek zkratit(){
