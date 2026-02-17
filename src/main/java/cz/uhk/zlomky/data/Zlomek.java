@@ -28,8 +28,41 @@ public class Zlomek {
         this.jmenovatel = jmenovatel;
     }
 
+    //operace
+
+    /**
+     *
+     * Scita zlomek s dalsim zlomkem
+     * @param druhy druhy zlomek
+     * @return vysledek jako zlomek
+     */
+    public Zlomek plus(Zlomek druhy){
+        int cit = citatel * druhy.jmenovatel + druhy.citatel * jmenovatel;
+        int jm = jmenovatel * druhy.jmenovatel;
+        return new Zlomek(cit, jm);
+    }
+
+    public Zlomek minus(Zlomek druhy){
+        int cit = citatel * druhy.jmenovatel - druhy.citatel * jmenovatel;
+        int jm = jmenovatel * druhy.jmenovatel;
+        return new Zlomek(cit, jm);
+    }
+
+    public Zlomek nasobeni(Zlomek druhy){
+        int cit = citatel * druhy.citatel;
+        int jm = jmenovatel * druhy.jmenovatel;
+        return new Zlomek(cit, jm);
+    }
+
+    public Zlomek deleni(Zlomek druhy){
+        int cit = citatel * druhy.jmenovatel;
+        int jm = jmenovatel * druhy.citatel;
+        return new Zlomek(cit, jm);
+    }
+
+
     @Override
     public String toString() {
-        return String.format("%3d\n-----\n%3d", citatel, jmenovatel);
+        return String.format("%d/%d", citatel, jmenovatel);
     }
 }
