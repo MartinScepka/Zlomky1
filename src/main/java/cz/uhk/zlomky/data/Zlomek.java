@@ -1,6 +1,6 @@
 package cz.uhk.zlomky.data;
 
-public class Zlomek {
+public class Zlomek extends Number{
     private int citatel;
     private int jmenovatel;
 
@@ -9,6 +9,28 @@ public class Zlomek {
         this.citatel = 0;
         this.jmenovatel = 1;
     } // defaultni konstruktor
+
+    @Override
+    public int intValue() {
+        //return (int)doubleValue();
+        return (int)longValue();
+    }
+
+    @Override
+    public long longValue() {
+        //return (long)doubleValue();
+        return Math.round(doubleValue());
+    }
+
+    @Override
+    public float floatValue() {
+        return (float)doubleValue();
+    }
+
+    @Override
+    public double doubleValue() {
+        return citatel / (double)jmenovatel;
+    }
 
     public Zlomek(int citatel, int jmenovatel){
         this.citatel = citatel;
