@@ -68,4 +68,25 @@ class SpojovySeznamTest {
         initData();
         assertEquals(4,seznam.pocet(), "pocet - 2 prvky");
     }
+
+    @Test
+    @DisplayName("Pridej na pozici")
+    void pridejNaPozici(){
+        initData();
+
+        seznam.pridej(99, 2);
+        assertEquals(5, seznam.pocet());
+        assertEquals(99, seznam.vrat(2));
+        assertEquals(30, seznam.vrat(3));
+
+        seznam.pridej(5, 0);
+        assertEquals(6, seznam.pocet());
+        assertEquals(5, seznam.vrat(0));
+        assertEquals(10, seznam.vrat(1));
+
+        seznam.pridej(100, seznam.pocet());
+        assertEquals(7, seznam.pocet());
+        assertEquals(100, seznam.vrat(6));
+    }
+
 }

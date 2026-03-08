@@ -24,6 +24,26 @@ public class SpojovySeznam<E> implements Seznam<E> {
     }
 
     @Override
+    public void  pridej(E hodnota, int pozice){
+        var novy = new PrvekSeznamu<E>(hodnota);
+        if(pozice <= 0){
+            novy.dalsi = prvni;
+            prvni = novy;
+            if(posledni == null){
+                posledni = novy;
+            }
+            } else if (pozice >= pocet()) {
+                pridej(hodnota);
+        }
+                else {
+                var predchozi = vratPrvek(pozice -1);
+                novy.dalsi = predchozi.dalsi;
+                predchozi.dalsi = novy;
+        }
+    }
+
+
+    @Override
     public void smaz(int pozice) {
         if (pozice == 0){
             prvni = prvni.dalsi;
